@@ -3,11 +3,9 @@ package view;
 import domain.*;
 import exceptions.InvalidDataException;
 import exceptions.NoDataFoundException;
-import services.AuthorsService;
-import services.BooksService;
-import services.CustomersService;
-import services.EventsService;
+import services.*;
 
+import java.io.IOException;
 import java.util.*;
 
 public class ConsoleApp {
@@ -24,10 +22,15 @@ public class ConsoleApp {
 
     public static void main(String args[]) {
         ConsoleApp app = new ConsoleApp();
+
         while (true) {
             app.showMenu();
             int option = app.readOption();
-            app.execute(option);
+            try{
+                app.execute(option);
+            }catch(Exception e){
+                System.out.println(e);
+            }
         }
     }
 
@@ -90,72 +93,120 @@ public class ConsoleApp {
         return readOption();
     }
 
-    private void execute(int option) {
-        switch (option) {
-            case 1 ->
+    private void execute(int option) throws IOException {
+        AuditingService auditingService = new AuditingService();
+        try {
+            switch (option) {
+                case 1:
                     //Add a section
                     AddSection();
-            case 2 ->
+                    auditingService.addActionToHistory("Added section");
+                    break;
+                case 2:
                     // Add a book
                     AddBook();
-            case 3 ->
+                    auditingService.addActionToHistory("Added book");
+                    break;
+
+                case 3:
                     // Delete a book
                     DeleteBook();
-            case 4 ->
+                    auditingService.addActionToHistory("Deleted a book");
+                    break;
+                case 4:
                     // List all the books in a section
                     ListSectionBooks();
-            case 5 ->
+                    auditingService.addActionToHistory("Listed all books in a section");
+                    break;
+                case 5:
                     // Change a book's price
                     ChangeBookPrice();
-            case 6 ->
+                    auditingService.addActionToHistory("Changed a book's price");
+                    break;
+                case 6:
                     // Filter books by price
                     FilterBooksByPrice();
-            case 7 ->
+                    auditingService.addActionToHistory("Filtered books by price");
+                    break;
+
+                case 7:
                     // Filter books from a section by price
                     FilterBooksFromSectionByPrice();
-            case 8 ->
+                    auditingService.addActionToHistory("Filtered books from a section by price");
+                    break;
+                case 8:
                     // List all books ordered by price
                     ListAllBooksOrderedByPrice();
-            case 9 ->
+                    auditingService.addActionToHistory("Listed all books ordered by price");
+                    break;
+                case 9:
                     // Add an author
                     AddAnAuthor();
-            case 10 ->
+                    auditingService.addActionToHistory("Added an author");
+                    break;
+                case 10:
                     // List all authors
                     ListAllAuthors();
-            case 11 ->
+                    auditingService.addActionToHistory("Listed all authors");
+                    break;
+                case 11:
                     // List all authors of a book
                     ListAllAuthorsOfABook();
-            case 12 ->
+                    auditingService.addActionToHistory("Listed all authors of a book");
+                    break;
+                case 12:
                     // List all books written by an author
                     ListAllBooksWrittenByAuthor();
-            case 13 ->
+                    auditingService.addActionToHistory("Listed all books written by an author");
+                    break;
+                case 13:
                     // Add an event
                     AddAnEvent();
-            case 14 ->
+                    auditingService.addActionToHistory("Added an event");
+                    break;
+                case 14:
                     // Delete an event
                     DeleteAnEvent();
-            case 15 ->
+                    auditingService.addActionToHistory("Deleted an event");
+                    break;
+                case 15:
                     // List all events
                     ListAllEvents();
-            case 16 ->
+                    auditingService.addActionToHistory("Listed all events");
+                    break;
+                case 16:
                     // Add a customer
                     AddACustomer();
-            case 17 ->
+                    auditingService.addActionToHistory("Added a customer");
+                    break;
+                case 17:
                     // Lend a book
                     LendABook();
-            case 18 ->
+                    auditingService.addActionToHistory("Lent a book");
+                    break;
+                case 18:
                     // Return a book
                     ReturnABook();
-            case 19 ->
+                    auditingService.addActionToHistory("Returned a book");
+                    break;
+                case 19:
                     // List all books that are currently borrowed
                     ListBorrowedBooks();
-            case 20 ->
+                    auditingService.addActionToHistory("Listed all books that are currently borrowed");
+                    break;
+                case 20:
                     // List all books borrowed by a customer
                     ListBorrowedBooksByCustomer();
-            case 21 -> {
-                System.out.println(ANSI_PURPLE_BACKGROUND + ANSI_BLACK + "Thank you for visiting us!☺" + ANSI_RESET);
-                System.exit(0);
+                    auditingService.addActionToHistory("Listed all books borrowed by a customer");
+                    break;
+                case 21: {
+                    System.out.println(ANSI_PURPLE_BACKGROUND + ANSI_BLACK + "Thank you for visiting us!☺" + ANSI_RESET);
+                    System.exit(0);
+                    break;
+                }
             }
+        }catch(Exception e){
+            System.out.println(e);
         }
     }
 
