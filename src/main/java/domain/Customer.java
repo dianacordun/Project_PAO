@@ -68,4 +68,8 @@ public class Customer {
     public void setMembership(Boolean membership) {
         this.membership = membership;
     }
+
+    public String toCSV() {
+        return firstName+","+lastName+","+phoneNumber+","+email+","+membership;
+    }
 }

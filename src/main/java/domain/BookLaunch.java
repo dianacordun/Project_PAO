@@ -15,4 +15,7 @@ public class BookLaunch extends Event{
     public Book getBook() {
         return book;
     }
+    public String toCSV() {
+        return location+","+organizer+","+name+","+date+","+book.toCSV();
+    }
 }

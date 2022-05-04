@@ -225,4 +225,22 @@ public class BooksService {
         }
         throw new NoDataFoundException("There is no book with given ISBN code");
     }
+
+    /**
+     * Returns the book with the given ISBN.
+     * Checks if the ISBN code is valid.
+     */
+    public Section getSectionByName(String name) throws NoDataFoundException {
+
+        for(int i = 0; i < sectionRepository.getSize(); i++) {
+            if (sectionRepository.get(i) == null) {
+                throw new NoDataFoundException("No sections");
+            }
+
+            if (sectionRepository.get(i).getSectionName().equals(name)){
+                return sectionRepository.get(i);
+            }
+        }
+        throw new NoDataFoundException("There is no section with given name");
+    }
 }

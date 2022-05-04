@@ -530,7 +530,7 @@ public class ConsoleApp {
                     for (MeetTheAuthor event : events) {
                         System.out.println(event.getName() + " - Location: " + event.getLocation() +
                                 " - Organizer: " + event.getOrganizer() + " - Date: " + event.getDate() +
-                                " - Author: " + event.getAutor().getLastName() + " " + event.getAutor().getFirstName());
+                                " - Author: " + event.getAuthor().getLastName() + " " + event.getAuthor().getFirstName());
                     }
                 }catch (NoDataFoundException noDataFoundException){
                     System.out.println(noDataFoundException.getMessage());

@@ -30,4 +30,8 @@ public class Section {
     public void setRoom(int room) {
         this.room = room;
     }
+
+    public String toCSV() {
+        return sectionName+","+room;
+    }
 }

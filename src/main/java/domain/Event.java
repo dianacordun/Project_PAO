@@ -61,4 +61,7 @@ public class Event {
         this.date = date;
     }
 
+    public String toCSV() {
+        return location+","+organizer+","+name+","+date;
+    }
 }

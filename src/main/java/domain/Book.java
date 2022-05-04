@@ -78,5 +78,9 @@ public class Book implements Comparable<Book> {
         return 0;
     }
 
+    public String toCSV() {
+        return ISBN+","+price+","+title+","+publisher+","+numberOfCopies+","+section.toCSV();
+    }
+
 
 }
