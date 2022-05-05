@@ -17,6 +17,21 @@ public class EventsService {
      */
     private EventRepository eventRepository = new EventRepository();
 
+    public void addStorage(List<Event> events){
+        for (int i=0;i<events.size();i++){
+            this.eventRepository.add(events.get(i));
+        }
+    }
+    public void addMTAStorage(List<MeetTheAuthor> events){
+        for (int i=0;i<events.size();i++){
+            this.eventRepository.add(events.get(i));
+        }
+    }
+    public void addBLStorage(List<BookLaunch> events){
+        for (int i=0;i<events.size();i++){
+            this.eventRepository.add(events.get(i));
+        }
+    }
     public void addNewEvent(String location, String organizer, String name, String date) throws InvalidDataException, NoDataFoundException {
         if (location == null || location.trim().isEmpty()) {
             throw new InvalidDataException("Invalid location");

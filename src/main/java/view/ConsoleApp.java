@@ -95,6 +95,22 @@ public class ConsoleApp {
 
     private void execute(int option) throws IOException {
         AuditingService auditingService = new AuditingService();
+
+        // loading the data from the CSV
+        SectionIO.getInstance().readCSV();
+        BookIO.getInstance().readCSV();
+        AuthorIO.getInstance().readCSV();
+        EventIO.getInstance().readCSV();
+        CustomerIO.getInstance().readCSV();
+        MTAIO.getInstance().readCSV();
+        BookLaunchIO.getInstance().readCSV();
+
+        //adding storage to services
+        booksService.addStorage(SectionIO.getInstance().getSections(), BookIO.getInstance().getBooks());
+        eventsService.addStorage(EventIO.getInstance().getEvents());
+        eventsService.addMTAStorage(MTAIO.getInstance().getEvents());
+        eventsService.addBLStorage(BookLaunchIO.getInstance().getEvents());
+
         try {
             switch (option) {
                 case 1:

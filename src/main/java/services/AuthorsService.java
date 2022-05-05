@@ -1,7 +1,9 @@
 package services;
 
 import domain.Author;
+import domain.AuthorBook;
 import domain.Book;
+import domain.Section;
 import exceptions.InvalidDataException;
 import exceptions.NoDataFoundException;
 import persistence.AuthorBookRepository;
@@ -16,6 +18,19 @@ public class AuthorsService {
     private AuthorRepository authorRepository = new AuthorRepository();
     private BookRepository bookRepository = new BookRepository();
     private AuthorBookRepository authorBookRepository = new AuthorBookRepository();
+
+
+    public void addStorage(List<Author> authors, List<Book> books, List<AuthorBook> authorbooks){
+        for (int i=0;i<authors.size();i++){
+            this.authorRepository.add(authors.get(i));
+        }
+        for (int i=0;i<books.size();i++){
+            this.bookRepository.add(books.get(i));
+        }
+        for (int i=0;i<authorbooks.size();i++){
+            this.authorBookRepository.add(authorbooks.get(i));
+        }
+    }
 
     /**
      * Adds a new author.

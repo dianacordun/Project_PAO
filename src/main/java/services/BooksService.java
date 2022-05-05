@@ -1,6 +1,7 @@
 package services;
 
 import domain.Book;
+import domain.Event;
 import domain.Section;
 import exceptions.InvalidDataException;
 import exceptions.NoDataFoundException;
@@ -14,6 +15,16 @@ import java.util.List;
 public class BooksService {
     private SectionRepository sectionRepository = new SectionRepository();
     private BookRepository bookRepository = new BookRepository();
+
+
+    public void addStorage(List<Section> sections, List<Book> books){
+        for (int i=0;i<sections.size();i++){
+            this.sectionRepository.add(sections.get(i));
+        }
+        for (int i=0;i<books.size();i++){
+            this.bookRepository.add(books.get(i));
+        }
+    }
 
     /**
      * Registers a new section.

@@ -1,9 +1,6 @@
 package services;
 
-import domain.Author;
-import domain.Book;
-import domain.Customer;
-import domain.CustomerBookLend;
+import domain.*;
 import exceptions.InvalidDataException;
 import exceptions.NoDataFoundException;
 import persistence.BookRepository;
@@ -18,6 +15,18 @@ public class CustomersService {
     private CustomerRepository customerRepository = new CustomerRepository();
     private CustomerBookLendRepository customerBookLendRepository = new CustomerBookLendRepository();
     private BookRepository bookRepository = new BookRepository();
+
+    public void addStorage(List<Customer> customers, List<Book> books, List<CustomerBookLend> cbl){
+        for (int i=0;i<customers.size();i++){
+            this.customerRepository.add(customers.get(i));
+        }
+        for (int i=0;i<books.size();i++){
+            this.bookRepository.add(books.get(i));
+        }
+        for (int i=0;i<cbl.size();i++){
+            this.customerBookLendRepository.add(cbl.get(i));
+        }
+    }
 
     /**
      * Adds a new author.

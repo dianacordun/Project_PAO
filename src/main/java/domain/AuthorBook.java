@@ -17,4 +17,8 @@ public class AuthorBook {
     public String getBookIsbn() {
         return bookIsbn;
     }
+
+    public String toCSV() {
+        return authorId+","+bookIsbn;
+    }
 }

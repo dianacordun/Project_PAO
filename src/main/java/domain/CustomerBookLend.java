@@ -4,7 +4,7 @@ public class CustomerBookLend {
     private final int customerId;
     private final String bookIsbn;
     private String lendDate;
-    private String returnDate;
+    private String returnDate; //expected return date if the book hasn't been returned yet
     private Boolean returned;
 
     /** constructor */
@@ -43,5 +43,9 @@ public class CustomerBookLend {
 
     public void setReturned(Boolean returned) {
         this.returned = returned;
+    }
+
+    public String toCSV() {
+        return customerId+","+bookIsbn+","+lendDate+","+returnDate+","+returned;
     }
 }

@@ -1,9 +1,7 @@
 package services;
 
-import domain.Author;
 import domain.Book;
 import domain.BookLaunch;
-import domain.MeetTheAuthor;
 import exceptions.InvalidDataException;
 import exceptions.NoDataFoundException;
 
