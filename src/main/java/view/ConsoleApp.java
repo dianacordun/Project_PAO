@@ -100,13 +100,17 @@ public class ConsoleApp {
         SectionIO.getInstance().readCSV();
         BookIO.getInstance().readCSV();
         AuthorIO.getInstance().readCSV();
+        AuthorBookIO.getInstance().readCSV();
         EventIO.getInstance().readCSV();
         CustomerIO.getInstance().readCSV();
+        CBLIO.getInstance().readCSV();
         MTAIO.getInstance().readCSV();
         BookLaunchIO.getInstance().readCSV();
 
         //adding storage to services
         booksService.addStorage(SectionIO.getInstance().getSections(), BookIO.getInstance().getBooks());
+        authorsService.addStorage(AuthorIO.getInstance().getAuthors(), BookIO.getInstance().getBooks(), AuthorBookIO.getInstance().getAuthorBooks());
+        customersService.addStorage(CustomerIO.getInstance().getCustomers(), BookIO.getInstance().getBooks(), CBLIO.getInstance().getCBLs());
         eventsService.addStorage(EventIO.getInstance().getEvents());
         eventsService.addMTAStorage(MTAIO.getInstance().getEvents());
         eventsService.addBLStorage(BookLaunchIO.getInstance().getEvents());

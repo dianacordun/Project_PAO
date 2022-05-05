@@ -10,7 +10,7 @@ public class AuditingService {
     public AuditingService() {
         try{
             //we don't want the previous contents of the file deleted
-            this.writer = new FileWriter("History.csv",true);
+            this.writer = new FileWriter("src/main/java/files/history.csv",true);
         }catch (IOException e){
             System.out.println(e);
         }

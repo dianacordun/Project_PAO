@@ -50,7 +50,7 @@ public class BookLaunchIO implements GenericIO{
 
     @Override
     public void readCSV() {
-        var data = BookLaunchIO.getData("files/booklaunch.csv");
+        var data = BookLaunchIO.getData("src/main/java/files/booklaunch.csv");
         BooksService booksService = new BooksService();
 
         for(var fields : data){
@@ -74,7 +74,7 @@ public class BookLaunchIO implements GenericIO{
     @Override
     public void writeCSV() {
         try{
-            var writer = new FileWriter("files/booklaunch.csv");
+            var writer = new FileWriter("src/main/java/files/booklaunch.csv");
             for(var event : this.events){
                 writer.write(event.toCSV());
                 writer.write("\n");

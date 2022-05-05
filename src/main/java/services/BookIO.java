@@ -51,7 +51,7 @@ public class BookIO implements GenericIO{
     public void readCSV() throws IOException {
         try{
             BooksService booksService = new BooksService();
-            var data = BookIO.getData("files/book.csv");
+            var data = BookIO.getData("src/main/java/files/book.csv");
             for(var fields : data){
                 Section section = booksService.getSectionByName(fields[5]); //section name
                 var all = new Book(
@@ -72,7 +72,7 @@ public class BookIO implements GenericIO{
     @Override
     public void writeCSV() throws IOException {
         try{
-            var writer = new FileWriter("files/book.csv");
+            var writer = new FileWriter("src/main/java/files/book.csv");
             for(var book : this.books){
                 writer.write(book.toCSV());
                 writer.write("\n");

@@ -48,7 +48,7 @@ public class AuthorBookIO implements GenericIO{
 
     @Override
     public void readCSV() {
-        var data = AuthorBookIO.getData("files/authorBook.csv");
+        var data = AuthorBookIO.getData("src/main/java/files/authorBook.csv");
         for(var fields : data){
             var all = new AuthorBook(
                     Integer.parseInt(fields[0]), // author id
@@ -61,7 +61,7 @@ public class AuthorBookIO implements GenericIO{
     @Override
     public void writeCSV() {
         try{
-            var writer = new FileWriter("files/authorBook.csv");
+            var writer = new FileWriter("src/main/java/files/authorBook.csv");
             for(var authorBook : this.authorBooks){
                 writer.write(authorBook.toCSV());
                 writer.write("\n");

@@ -51,7 +51,7 @@ public class MTAIO implements GenericIO{
 
     @Override
     public void readCSV() {
-        var data = MTAIO.getData("files/mta.csv");
+        var data = MTAIO.getData("src/main/java/files/mta.csv");
         AuthorsService authorsService = new AuthorsService();
 
         for(var fields : data){
@@ -75,7 +75,7 @@ public class MTAIO implements GenericIO{
     @Override
     public void writeCSV() {
         try{
-            var writer = new FileWriter("files/mta.csv");
+            var writer = new FileWriter("src/main/java/files/mta.csv");
             for(var event : this.events){
                 writer.write(event.toCSV());
                 writer.write("\n");

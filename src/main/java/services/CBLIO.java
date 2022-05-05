@@ -19,11 +19,11 @@ public class CBLIO implements GenericIO{
         return INSTANCE;
     }
 
-    public void setcblStorage(List<CustomerBookLend> cbls) {
+    public void setCBLStorage(List<CustomerBookLend> cbls) {
         this.cbls = cbls;
     }
 
-    public List<CustomerBookLend> getcbls() {
+    public List<CustomerBookLend> getCBLs() {
         return this.cbls;
     }
 
@@ -47,7 +47,7 @@ public class CBLIO implements GenericIO{
 
     @Override
     public void readCSV() {
-        var data = CBLIO.getData("files/cbl.csv");
+        var data = CBLIO.getData("src/main/java/files/cbl.csv");
 
         for(var fields : data){
             Boolean returned = true;
@@ -68,7 +68,7 @@ public class CBLIO implements GenericIO{
     @Override
     public void writeCSV() {
         try{
-            var writer = new FileWriter("files/cbl.csv");
+            var writer = new FileWriter("src/main/java/files/cbl.csv");
             for(var cbl : this.cbls){
                 writer.write(cbl.toCSV());
                 writer.write("\n");

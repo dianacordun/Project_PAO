@@ -50,7 +50,7 @@ public class SectionIO implements GenericIO {
 
     @Override
     public void readCSV() {
-            var data = SectionIO.getData("files/section.csv");
+            var data = SectionIO.getData("src/main/java/files/section.csv");
             for(var fields : data){
                 var all = new Section(
                         fields[0], // name
@@ -63,7 +63,7 @@ public class SectionIO implements GenericIO {
     @Override
     public void writeCSV() {
         try{
-            var writer = new FileWriter("files/section.csv");
+            var writer = new FileWriter("src/main/java/files/section.csv");
             for(var Section : this.sections){
                 writer.write(Section.toCSV());
                 writer.write("\n");

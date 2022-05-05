@@ -48,7 +48,7 @@ public class EventIO implements GenericIO{
 
     @Override
     public void readCSV() {
-        var data = EventIO.getData("files/event.csv");
+        var data = EventIO.getData("src/main/java/files/event.csv");
         for(var fields : data){
             var all = new Event(
                     fields[0], // location
@@ -63,7 +63,7 @@ public class EventIO implements GenericIO{
     @Override
     public void writeCSV() {
         try{
-            var writer = new FileWriter("files/event.csv");
+            var writer = new FileWriter("src/main/java/files/event.csv");
             for(var event : this.events){
                 writer.write(event.toCSV());
                 writer.write("\n");

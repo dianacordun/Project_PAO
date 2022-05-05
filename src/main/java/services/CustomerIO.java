@@ -47,7 +47,7 @@ public class CustomerIO implements GenericIO{
 
     @Override
     public void readCSV() {
-        var data = CustomerIO.getData("files/customer.csv");
+        var data = CustomerIO.getData("src/main/java/files/customer.csv");
         for(var fields : data){
             Boolean member = true;
             if (fields[4].equals("1")) //membership
@@ -67,7 +67,7 @@ public class CustomerIO implements GenericIO{
     @Override
     public void writeCSV() {
         try{
-            var writer = new FileWriter("files/customer.csv");
+            var writer = new FileWriter("src/main/java/files/customer.csv");
             for(var customer : this.customers){
                 writer.write(customer.toCSV());
                 writer.write("\n");
