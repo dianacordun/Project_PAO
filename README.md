@@ -56,3 +56,7 @@ A "Meet the author" event has only one author as a guest, and a book launch is d
 + Events (The user will choose if they want to see all events or just Meet The Authors / Book Launches)
 + Books that are currently borrowed
 + Books borrowed by given customer
+
+#### Diagram
+
+![](img_1.png)
