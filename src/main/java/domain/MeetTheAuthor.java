@@ -5,10 +5,7 @@ public class MeetTheAuthor extends Event{
 
     /** constructor */
     public MeetTheAuthor(String location, String organizer, String name, String date, Author author) {
-        this.location = location;
-        this.organizer = organizer;
-        this.name = name;
-        this.date = date;
+        super(location,organizer,name,date);
         this.author = author;
     }
     /** getter */

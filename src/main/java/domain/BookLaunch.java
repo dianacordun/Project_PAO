@@ -5,10 +5,7 @@ public class BookLaunch extends Event{
 
     /** constructor */
     public BookLaunch(String location, String organizer, String name, String date, Book book) {
-        this.location = location;
-        this.organizer = organizer;
-        this.name = name;
-        this.date = date;
+        super(location,organizer,name,date);
         this.book = book;
     }
     /** getter */
